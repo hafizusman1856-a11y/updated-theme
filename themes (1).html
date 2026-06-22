@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Themes — Premium eCommerce Templates</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f6fa;
+      --surface: #ffffff;
+      --card: #ffffff;
+      --border: #e4e6ef;
+      --border-hover: #c5c9e0;
+      --accent: #5b4fcf;
+      --accent2: #9b59b6;
+      --accent-light: #ede9ff;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --tag-bg: #f3f4f6;
+      --radius: 14px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.07);
+      --shadow-hover: 0 12px 40px rgba(91,79,207,0.15);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-optical-sizing: auto;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px; font-weight: 800;
+      color: var(--text); letter-spacing: -0.3px;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 14px; font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); font-weight: 600; }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 8px;
+      padding: 9px 20px; font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .nav-cta:hover { background: #4a3fbf; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 72px 24px 56px;
+      background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent-light); border: 1px solid rgba(91,79,207,0.2);
+      border-radius: 100px; padding: 5px 14px;
+      font-size: 12px; font-weight: 600; color: var(--accent);
+      margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(30px, 5vw, 54px);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    h1 .grad {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 17px; color: var(--muted); max-width: 500px;
+      margin: 0 auto 36px; line-height: 1.7; font-weight: 400;
+    }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 56px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 26px; font-weight: 800; color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    .stat-label { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    /* FEATURED BANNER */
+    .featured-banner {
+      margin: 32px 40px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      border-radius: 16px; padding: 36px 44px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .featured-text h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px; font-weight: 800; color: #fff;
+      margin-bottom: 6px; letter-spacing: -0.3px;
+    }
+    .featured-text p { color: rgba(255,255,255,0.8); font-size: 14px; }
+    .featured-actions { display: flex; gap: 10px; }
+    .btn-outline-white {
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4);
+      color: #fff; border-radius: 9px;
+      padding: 10px 22px; font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.25); }
+    .btn-white {
+      background: #fff; border: none; color: var(--accent);
+      border-radius: 9px; padding: 10px 22px;
+      font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: opacity 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-white:hover { opacity: 0.9; }
+
+    /* FILTERS */
+    .filters-wrap {
+      padding: 24px 40px 28px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .filter-label { font-size: 13px; color: var(--muted); font-weight: 500; margin-right: 4px; }
+    .filter-btn {
+      background: var(--bg); border: 1px solid var(--border);
+      color: var(--muted); border-radius: 100px;
+      padding: 7px 16px; font-size: 13px; font-weight: 500;
+      cursor: pointer; transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .search-box {
+      margin-left: auto;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 8px 16px;
+      display: flex; align-items: center; gap: 8px;
+      transition: border-color 0.2s;
+    }
+    .search-box:focus-within { border-color: var(--accent); }
+    .search-box input {
+      background: none; border: none; outline: none;
+      color: var(--text); font-size: 14px; width: 180px;
+      font-family: 'Inter', sans-serif;
+    }
+    .search-box input::placeholder { color: #aaa; }
+
+    /* GRID */
+    .themes-section { padding: 32px 40px 80px; }
+    .section-title {
+      font-size: 12px; color: var(--muted); font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    .themes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 22px;
+    }
+
+    .theme-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      cursor: pointer; position: relative;
+    }
+    .theme-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-preview {
+      position: relative; overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+    .mock-preview {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+    }
+    .mock-nav { height: 32px; display: flex; align-items: center; padding: 0 14px; gap: 8px; flex-shrink: 0; }
+    .mock-hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px; gap: 6px; }
+    .mock-grid-row { display: flex; gap: 6px; padding: 8px 10px; flex-shrink: 0; }
+    .mock-card-sm { flex: 1; border-radius: 5px; height: 44px; }
+    .mock-footer { height: 24px; flex-shrink: 0; }
+
+    .card-overlay {
+      position: absolute; inset: 0;
+      background: rgba(26,26,46,0.6);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .theme-card:hover .card-overlay { opacity: 1; }
+    .overlay-btn {
+      background: #fff; color: #1a1a2e;
+      border: none; border-radius: 8px;
+      padding: 8px 16px; font-size: 13px; font-weight: 600;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+    }
+    .overlay-btn.primary { background: var(--accent); color: #fff; }
+
+    .badge-new, .badge-hot, .badge-free {
+      position: absolute; top: 10px; left: 10px;
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; border-radius: 5px; padding: 3px 8px;
+    }
+    .badge-new { background: #10b981; color: #fff; }
+    .badge-hot { background: #ef4444; color: #fff; }
+    .badge-free { background: var(--accent); color: #fff; left: auto; right: 10px; }
+
+    .card-body { padding: 18px 20px 20px; }
+    .card-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
+    .card-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px; font-weight: 700; color: var(--text);
+    }
+    .card-price { font-size: 15px; font-weight: 700; color: var(--accent); }
+    .card-price.free { color: #10b981; }
+    .card-rating { display: flex; align-items: center; gap: 5px; margin-bottom: 8px; }
+    .stars { color: #f59e0b; font-size: 12px; }
+    .rating-count { font-size: 12px; color: var(--muted); }
+    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+    .tag {
+      background: var(--tag-bg); border: 1px solid var(--border);
+      color: var(--muted); border-radius: 5px;
+      padding: 3px 9px; font-size: 11px; font-weight: 500;
+    }
+    .card-actions { display: flex; gap: 8px; }
+    .btn-demo {
+      flex: 1; background: var(--bg); border: 1px solid var(--border);
+      color: var(--text); border-radius: 8px;
+      padding: 9px; font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: all 0.2s; text-align: center;
+      text-decoration: none; display: block; font-family: 'Inter', sans-serif;
+    }
+    .btn-demo:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-get {
+      flex: 1; background: var(--accent); border: none;
+      color: #fff; border-radius: 8px;
+      padding: 9px; font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: background 0.2s; text-align: center;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-get:hover { background: #4a3fbf; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 28px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    footer p { color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      .hero { padding: 48px 16px 36px; }
+      .filters-wrap, .themes-section { padding-left: 16px; padding-right: 16px; }
+      .featured-banner { padding: 24px 20px; margin: 24px 16px; }
+      .search-box { margin-left: 0; width: 100%; }
+      footer { padding: 20px 16px; }
+      .hero-stats { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Drop<span>Store</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Products</a></li>
+    <li><a href="#" class="active">Themes</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="#">Support</a></li>
+  </ul>
+  <button class="nav-cta">Get Started Free</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ Premium Templates</div>
+  <h1>Beautiful Themes for<br><span class="grad">Your Online Store</span></h1>
+  <p>Professional, conversion-optimized website themes. One click install. Launch your store today.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Premium Themes</div></div>
+    <div class="stat"><div class="stat-num">12K+</div><div class="stat-label">Active Stores</div></div>
+    <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Avg Rating</div></div>
+    <div class="stat"><div class="stat-num">1-click</div><div class="stat-label">Easy Install</div></div>
+  </div>
+</section>
+
+<!-- FEATURED BANNER -->
+<div class="featured-banner">
+  <div class="featured-text">
+    <h2>🔥 New: Fashion Pro 2.0 — Just Launched</h2>
+    <p>12 homepage layouts, mega menu & lookbook support included.</p>
+  </div>
+  <div class="featured-actions">
+    <button class="btn-outline-white">Live Preview</button>
+    <button class="btn-white">Get This Theme</button>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters-wrap">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn active" onclick="filterThemes('all', this)">All Themes</button>
+  <button class="filter-btn" onclick="filterThemes('fashion', this)">Fashion</button>
+  <button class="filter-btn" onclick="filterThemes('electronics', this)">Electronics</button>
+  <button class="filter-btn" onclick="filterThemes('grocery', this)">Grocery</button>
+  <button class="filter-btn" onclick="filterThemes('furniture', this)">Furniture</button>
+  <button class="filter-btn" onclick="filterThemes('beauty', this)">Beauty</button>
+  <button class="filter-btn" onclick="filterThemes('free', this)">Free</button>
+  <div class="search-box">
+    <span style="color:#aaa;font-size:15px">🔍</span>
+    <input type="text" placeholder="Search themes..." oninput="searchThemes(this.value)" />
+  </div>
+</div>
+
+<!-- THEMES GRID -->
+<section class="themes-section">
+  <div class="section-title">All Themes</div>
+  <div class="themes-grid" id="themesGrid">
+
+    <!-- Theme 1: NightMode Fashion -->
+    <div class="theme-card" data-cat="fashion">
+      <div class="card-preview">
+        <div class="mock-preview">
+          <div class="mock-nav" style="background:#1a1a2e">
+            <div style="width:44px;height:5px;background:rgba(255,255,255,.7);border-radius:2px"></div>
+            <div style="flex:1"></div>
+            <div style="width:28px;height:5px;background:rgba(255,255,255,.3);border-radius:2px"></div>
+          </div>
+          <div class="mock-hero" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
+            <div style="width:68%;height:9px;background:rgba(255,255,255,.9);border-radius:2px"></div>
+            <div style="width:48%;height:5px;background:rgba(255,255,255,.4);border-radius:2px"></div>
+            <div style="width:80px;height:18px;background:#e040fb;border-radius:5px;margin-top:4px"></div>
+          </div>
+          <div class="mock-grid-row" style="background:#0f0f1a">
+            <div class="mock-card-sm" style="background:#1a1a2e"></div>
+            <div class="mock-card-sm" style="background:#1a1a2e"></div>
+            <div class="mock-card-sm" style="background:#1a1a2e"></div>
+          </div>
+        </div>
+        <div class="badge-hot">HOT</div>
+        <div class="card-overlay">
+          <button class="overlay-btn">Preview</button>
+          <button class="overlay-btn primary">Use Theme</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">NightMode Fashion</div>
+          <div class="card-price">₨ 2,999</div>
+        </div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(148 reviews)</span></div>
+        <div class="card-desc">Dark luxury fashion theme with animated sliders and Instagram feed integration.</div>
+        <div class="card-tags"><span class="tag">Fashion</span><span class="tag">Dark</span><span class="tag">Animated</span></div>
+        <div class="card-actions">
+          <a class="btn-demo" href="#">Live Demo</a>
+          <button class="btn-get">Get Theme</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 2: TechZone Pro -->
+    <div class="theme-card" data-cat="electronics">
+      <div class="card-preview">
+        <div class="mock-preview">
+          <div class="mock-nav" style="background:#0050ff">
+            <div style="width:44px;height:5px;background:rgba(255,255,255,.9);border-radius:2px"></div>
+            <div style="flex:1"></div>
+            <div style="width:28px;height:5px;background:rgba(255,255,255,.4);border-radius:2px"></div>
+          </div>
+          <div class="mock-hero" style="background:#f0f4ff;flex-direction:row;padding:12px;gap:12px">
+            <div style="flex:1;display:flex;flex-direction:column;gap:5px;justify-content:center">
+              <div style="height:8px;background:#0050ff;border-radius:2px;width:80%"></div>
+              <div style="height:5px;background:#c5d0f5;border-radius:2px;width:60%"></div>
+              <div style="height:14px;background:#ff4d00;border-radius:4px;width:50%;margin-top:4px"></div>
+            </div>
+            <div style="width:60px;height:54px;background:#dde5ff;border-radius:8px"></div>
+          </div>
+          <div class="mock-grid-row" style="background:#fff">
+            <div class="mock-card-sm" style="background:#f0f4ff"></div>
+            <div class="mock-card-sm" style="background:#f0f4ff"></div>
+            <div class="mock-card-sm" style="background:#f0f4ff"></div>
+          </div>
+        </div>
+        <div class="badge-new">NEW</div>
+        <div class="card-overlay">
+          <button class="overlay-btn">Preview</button>
+          <button class="overlay-btn primary">Use Theme</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">TechZone Pro</div>
+          <div class="card-price">₨ 3,499</div>
+        </div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(92 reviews)</span></div>
+        <div class="card-desc">Electronics store with spec comparison tables, flash sale timer and mega menu.</div>
+        <div class="card-tags"><span class="tag">Electronics</span><span class="tag">Mega Menu</span><span class="tag">Timer</span></div>
+        <div class="card-actions">
+          <a class="btn-demo" href="#">Live Demo</a>
+          <button class="btn-get">Get Theme</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 3: Sunrise Store (Free) -->
+    <div class="theme-card" data-cat="fashion free">
+      <div class="card-preview">
+        <div class="mock-preview" style="background:#fff8f0">
+          <div class="mock-nav" style="background:#fff;border-bottom:1px solid #ffe0c0">
+            <div style="width:44px;height:5px;background:#ff6b35;border-radius:2px"></div>
+            <div style="flex:1"></div>
+          </div>
+          <div class="mock-hero" style="background:linear-gradient(135deg,#fff0e0,#ffe4cc)">
+            <div style="height:7px;background:#ff6b35;border-radius:2px;width:60%"></div>
+            <div style="height:5px;background:#ffb380;border-radius:2px;width:42%"></div>
+            <div style="height:15px;background:#ff6b35;border-radius:20px;width:32%;margin-top:5px"></div>
+          </div>
+          <div class="mock-grid-row" style="background:#fff8f0">
+            <div class="mock-card-sm" style="background:#ffe4cc"></div>
+            <div class="mock-card-sm" style="background:#ffe4cc"></div>
+            <div class="mock-card-sm" style="background:#ffe4cc"></div>
+          </div>
+          <div class="mock-footer" style="background:#ff6b35"></div>
+        </div>
+        <div class="badge-free">FREE</div>
+        <div class="card-overlay">
+          <button class="overlay-btn">Preview</button>
+          <button class="overlay-btn primary">Use Theme</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">Sunrise Store</div>
+          <div class="card-price free">FREE</div>
+        </div>
+        <div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(204 reviews)</span></div>
+        <div class="card-desc">Clean warm-toned starter theme. Perfect for new stores going live fast.</div>
+        <div class="card-tags"><span class="tag">Fashion</span><span class="tag">Minimal</span><span class="tag">Starter</span></div>
+        <div class="card-actions">
+          <a class="btn-demo" href="#">Live Demo</a>
+          <button class="btn-get">Download Free</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 4: FreshMart Grocery -->
+    <div class="theme-card" data-cat="grocery">
+      <div class="card-preview">
+        <div class="mock-preview">
+          <div class="mock-nav" style="background:#1b5e20">
+            <div style="width:44px;height:5px;background:rgba(255,255,255,.8);border-radius:2px"></div>
+            <div style="flex:1"></div>
+          </div>
+          <div class="mock-hero" style="background:#e8f5e9;flex-direction:row;gap:8px;padding:12px">
+            <div style="width:58px;height:50px;background:#a5d6a7;border-radius:8px"></div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:4px;justify-content:center">
+              <div style="height:6px;background:#1b5e20;border-radius:2px;width:80%"></div>
+              <div style="height:5px;background:#81c784;border-radius:2px;width:58%"></div>
+              <div style="height:13px;background:#4caf50;border-radius:4px;width:44%;margin-top:3px"></div>
+            </div>
+          </div>
+          <div class="mock-grid-row" style="background:#f1f8e9">
+            <div class="mock-card-sm" style="background:#c8e6c9"></div>
+            <div class="mock-card-sm" style="background:#c8e6c9"></div>
+            <div class="mock-card-sm" style="background:#c8e6c9"></div>
+          </div>
+        </div>
+        <div class="card-overlay">
+          <button class="overlay-btn">Preview</button>
+          <button class="overlay-btn primary">Use Theme</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">FreshMart Grocery</div>
+          <div class="card-price">₨ 2,499</div>
+        </div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(76 reviews)</span></div>
+        <div class="card-desc">Grocery & fresh food store with category icons, delivery slots and cart sidebar.</div>
+        <div class="card-tags"><span class="tag">Grocery</span><span class="tag">Food</span><span class="tag">Delivery</span></div>
+        <div class="card-actions">
+          <a class="btn-demo" href="#">Live Demo</a>
+          <button class="btn-get">Get Theme</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 5: Woodcraft Furniture -->
+    <div class="theme-card" data-cat="furniture">
+      <div class="card-preview">
+        <div class="mock-preview">
+          <div class="mock-nav" style="background:#3e2723">
+            <div style="width:44px;height:5px;background:rgba(255,255,255,.7);border-radius:2px"></div>
+            <div style="flex:1"></div>
+          </div>
+          <div class="mock-hero" style="background:linear-gradient(135deg,#efebe9,#d7ccc8);align-items:flex-start;padding:14px">
+            <div style="height:8px;background:#4e342e;border-radius:2px;width:65%;margin-bottom:5px"></div>
+            <div style="height:5px;background:#bcaaa4;border-radius:2px;width:45%;margin-bottom:8px"></div>
+            <div style="height:14px;background:#3e2723;border-radius:4px;width:40%"></div>
+          </div>
+          <div class="mock-grid-row" style="background:#fafafa">
+            <div class="mock-card-sm" style="background:#d7ccc8"></div>
+            <div class="mock-card-sm" style="background:#d7ccc8"></div>
+            <div class="mock-card-sm" style="background:#d7ccc8"></div>
+          </div>
+        </div>
+        <div class="badge-new">NEW</div>
+        <div class="card-overlay">
+          <button class="overlay-btn">Preview</button>
+          <button class="overlay-btn primary">Use Theme</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">Woodcraft Furniture</div>
+          <div class="card-price">₨ 3,999</div>
+        </div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(55 reviews)</span></div>
+        <div class="card-desc">Premium furniture store with room scene builder, 360° product view, and AR try-on.</div>
+        <div class="card-tags"><span class="tag">Furniture</span><span class="tag">3D View</span><span class="tag">Luxury</span></div>
+        <div class="card-actions">
+          <a class="btn-demo" href="#">Live Demo</a>
+          <button class="btn-get">Get Theme</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 6: GlowUp Beauty -->
+    <div class="theme-card" data-cat="beauty">
+      <div class="card-preview">
+        <div class="mock-preview">
+          <div class="mock-nav" style="background:#fce4ec">
+            <div style="width:44px;height:5px;background:#e91e63;border-radius:2px"></div>
+            <div style="flex:1"></div>
+          </div>
+          <div class="mock-hero" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0)">
+            <div style="height:7px;background:#c2185b;border-radius:2px;width:58%"></div>
+            <div style="height:5px;background:#f48fb1;border-radius:2px;width:40%"></div>
+            <div style="height:14px;background:#e91e63;border-radius:20px;width:34%;margin-top:5px"></div>
+          </div>
+          <div class="mock-grid-row" style="background:#fff">
+            <div class="mock-card-sm" style="background:#fce4ec"></div>
+            <div class="mock-card-sm" style="background:#fce4ec"></div>
+            <div class="mock-card-sm" style="background:#fce4ec"></div>
+          </div>
+          <div class="mock-footer" style="background:#c2185b"></div>
+        </div>
+        <div class="badge-hot">HOT</div>
+        <div class="card-overlay">
+          <button class="overlay-btn">Preview</button>
+          <button class="overlay-btn primary">Use Theme</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">GlowUp Beauty</div>
+          <div class="card-price">₨ 2,999</div>
+        </div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(183 reviews)</span></div>
+        <div class="card-desc">Cosmetics & skincare store with shade picker, before/after slider, and loyalty rewards.</div>
+        <div class="card-tags"><span class="tag">Beauty</span><span class="tag">Cosmetics</span><span class="tag">Skincare</span></div>
+        <div class="card-actions">
+          <a class="btn-demo" href="#">Live Demo</a>
+          <button class="btn-get">Get Theme</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 7: MinimalShop Lite (Free) -->
+    <div class="theme-card" data-cat="electronics free">
+      <div class="card-preview">
+        <div class="mock-preview" style="background:#fff">
+          <div class="mock-nav" style="background:#fff;border-bottom:1px solid #eee">
+            <div style="width:40px;height:5px;background:#111;border-radius:2px"></div>
+            <div style="flex:1"></div>
+          </div>
+          <div class="mock-hero" style="background:#f5f5f5">
+            <div style="height:7px;background:#111;border-radius:2px;width:55%"></div>
+            <div style="height:5px;background:#999;border-radius:2px;width:38%"></div>
+            <div style="height:13px;background:#111;border-radius:3px;width:36%;margin-top:5px"></div>
+          </div>
+          <div class="mock-grid-row" style="background:#fff">
+            <div class="mock-card-sm" style="background:#f0f0f0"></div>
+            <div class="mock-card-sm" style="background:#f0f0f0"></div>
+            <div class="mock-card-sm" style="background:#f0f0f0"></div>
+          </div>
+        </div>
+        <div class="badge-free">FREE</div>
+        <div class="card-overlay">
+          <button class="overlay-btn">Preview</button>
+          <button class="overlay-btn primary">Use Theme</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">MinimalShop Lite</div>
+          <div class="card-price free">FREE</div>
+        </div>
+        <div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(312 reviews)</span></div>
+        <div class="card-desc">Ultra-clean minimalist theme. Works great for any niche. Zero clutter, maximum conversions.</div>
+        <div class="card-tags"><span class="tag">Minimal</span><span class="tag">Universal</span><span class="tag">Fast</span></div>
+        <div class="card-actions">
+          <a class="btn-demo" href="#">Live Demo</a>
+          <button class="btn-get">Download Free</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 8: Noir Couture -->
+    <div class="theme-card" data-cat="fashion">
+      <div class="card-preview">
+        <div class="mock-preview">
+          <div class="mock-nav" style="background:#111">
+            <div style="width:40px;height:5px;background:rgba(255,255,255,.8);border-radius:2px"></div>
+            <div style="flex:1"></div>
+          </div>
+          <div class="mock-hero" style="background:#111;align-items:flex-start;padding:14px">
+            <div style="font-size:6px;color:rgba(255,255,255,.4);letter-spacing:2px;margin-bottom:5px">SUMMER 2025</div>
+            <div style="height:9px;background:#fff;border-radius:1px;width:72%;margin-bottom:5px"></div>
+            <div style="height:5px;background:rgba(255,255,255,.3);border-radius:1px;width:48%;margin-bottom:8px"></div>
+            <div style="height:13px;background:#fff;border-radius:2px;width:38%"></div>
+          </div>
+          <div class="mock-grid-row" style="background:#111">
+            <div class="mock-card-sm" style="background:#222"></div>
+            <div class="mock-card-sm" style="background:#222"></div>
+            <div class="mock-card-sm" style="background:#222"></div>
+          </div>
+        </div>
+        <div class="card-overlay">
+          <button class="overlay-btn">Preview</button>
+          <button class="overlay-btn primary">Use Theme</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">Noir Couture</div>
+          <div class="card-price">₨ 4,499</div>
+        </div>
+        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(67 reviews)</span></div>
+        <div class="card-desc">High-fashion luxury dark theme with editorial layouts, lookbook pages and video backgrounds.</div>
+        <div class="card-tags"><span class="tag">Fashion</span><span class="tag">Luxury</span><span class="tag">Editorial</span></div>
+        <div class="card-actions">
+          <a class="btn-demo" href="#">Live Demo</a>
+          <button class="btn-get">Get Theme</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme 9: DailyBazaar -->
+    <div class="theme-card" data-cat="grocery">
+      <div class="card-preview">
+        <div class="mock-preview" style="background:#fffde7">
+          <div class="mock-nav" style="background:#f57f17">
+            <div style="width:44px;height:5px;background:rgba(255,255,255,.8);border-radius:2px"></div>
+            <div style="flex:1"></div>
+          </div>
+          <div class="mock-hero" style="background:linear-gradient(135deg,#fff8e1,#ffecb3);flex-direction:row;gap:8px;padding:12px">
+            <div style="flex:1;display:flex;flex-direction:column;gap:4px;justify-content:center">
+              <div style="height:6px;background:#e65100;border-radius:2px;width:78%"></div>
+              <div style="height:5px;background:#ffcc02;border-radius:2px;width:55%"></div>
+              <div style="height:13px;background:#f57f17;border-radius:4px;width:44%;margin-top:3px"></div>
+            </div>
+            <div style="width:54px;height:48px;background:#ffe082;border-radius:8px"></div>
+          </div>
+          <div class="mock-grid-row" style="background:#fffde7">
+            <div class="mock-card-sm" style="background:#fff9c4"></div>
+            <div class="mock-card-sm" style="background:#fff9c4"></div>
+            <div class="mock-card-sm" style="background:#fff9c4"></div>
+          </div>
+        </div>
+        <div class="card-overlay">
+          <button class="overlay-btn">Preview</button>
+          <button class="overlay-btn primary">Use Theme</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <div class="card-name">DailyBazaar</div>
+          <div class="card-price">₨ 1,999</div>
+        </div>
+        <div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(98 reviews)</span></div>
+        <div class="card-desc">Multi-vendor grocery marketplace with deal of the day, loyalty points, and quick add to cart.</div>
+        <div class="card-tags"><span class="tag">Grocery</span><span class="tag">Multi-vendor</span><span class="tag">Deals</span></div>
+        <div class="card-actions">
+          <a class="btn-demo" href="#">Live Demo</a>
+          <button class="btn-get">Get Theme</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 DropStore. All themes are mobile-responsive & SEO optimized.</p>
+  <p>Need a custom theme? <a href="#" style="color:var(--accent);text-decoration:none;font-weight:500">Contact us →</a></p>
+</footer>
+
+<script>
+  function filterThemes(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.theme-card').forEach(card => {
+      const cats = card.dataset.cat || '';
+      card.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
+    });
+  }
+  function searchThemes(val) {
+    const q = val.toLowerCase();
+    document.querySelectorAll('.theme-card').forEach(card => {
+      card.style.display = card.innerText.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
